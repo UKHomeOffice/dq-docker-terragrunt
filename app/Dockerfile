@@ -12,4 +12,4 @@ RUN chmod +x /usr/local/bin/terragrunt
 
 WORKDIR /apps
 
-ENTRYPOINT []
+ENTRYPOINT ["/usr/local/bin/terragrunt"]
