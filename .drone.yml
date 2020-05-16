@@ -1,3 +1,9 @@
+matrix:
+  TERRAFORM_VERSION:
+    - 0.12.25
+  TERRAGRUNT_VERSION:
+    - 0.23.12
+
 pipeline:
 
   build:
@@ -8,8 +14,12 @@ pipeline:
     context: app
     dockerfile: app/Dockerfile
     force_tag: true
+    build_args:
+      - TERRAFORM_VERSION=${TERRAFORM_VERSION}
+      - TERRAGRUNT_VERSION=${TERRAGRUNT_VERSION}
     tags:
       - ${DRONE_COMMIT_SHA}
       - ${DRONE_BUILD_NUMBER}
+      - v${TERRAGRUNT_VERSION}
     when:
       event: push
