@@ -1,4 +1,5 @@
 ARG TERRAFORM_VERSION=${TERRAFORM_VERSION}
+
 FROM hashicorp/terraform:${TERRAFORM_VERSION}
 
 RUN apk add --update --upgrade --no-cache bash git openssh
